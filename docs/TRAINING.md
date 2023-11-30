@@ -45,7 +45,7 @@ All pre-trained models of Phase 1 DECOLA are [here](https://github.com/janghyunc
 ### Highlights 
 - [Self-labeling](https://github.com/janghyuncho/DECOLA/blob/main/decola/modeling/decola/d2_decola_deformable_detr.py#L304) from DECOLA conditioned on GT class names.
 
-- First-stage [conditioning a object](https://github.com/janghyuncho/DECOLA/blob/main/decola/modeling/decola/decola_zero_shot_classifier.py#L43) for general-purpose object detection.
+- First-stage [conditioning an object](https://github.com/janghyuncho/DECOLA/blob/main/decola/modeling/decola/decola_zero_shot_classifier.py#L43) for general-purpose object detection.
 
 - Simple detection training with generated pseudo-labels either online or [offline](https://github.com/janghyuncho/DECOLA/blob/main/docs/TRAINING.md#offline-self-labeling-and-training).
 
