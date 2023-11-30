@@ -1,0 +1,30 @@
+_BASE_: "Base-DeformDETR_L_R50_4x.yaml"
+FIND_UNUSED_PARAM: False
+MODEL:
+  WEIGHTS: "weights/swin_base_patch4_window7_224_22k.pkl"
+  BACKBONE:
+    NAME: build_swintransformer_backbone
+  SWIN:
+    SIZE: B-22k
+    OUT_FEATURES: [1, 2, 3]
+    USE_CHECKPOINT: False
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.12, 57.375]
+  DETR:
+    NUM_CLASSES: 1203 
+    USE_BIAS: -4.59511985013459
+    USE_ZEROSHOT_CLS: True 
+    NORM_WEIGHT: True 
+    LOOK_FORWARD_TWICE: True 
+    DROPOUT: 0.0
+    IN_FEATURES: ["swin1", "swin2", "swin3"] 
+DATASETS:
+  TRAIN: ("lvis_v1_train_norare",)
+DATALOADER:
+  NUM_WORKERS: 8
+SOLVER:
+  CHECKPOINT_PERIOD: 90000
+  IMS_PER_BATCH: 16
+  STEPS: (300000,)
+  MAX_ITER: 360000
+FP16: True 

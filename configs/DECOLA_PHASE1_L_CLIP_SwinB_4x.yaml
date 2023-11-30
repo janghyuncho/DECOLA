@@ -1,0 +1,42 @@
+_BASE_: "Base-DeformDETR_L_R50_4x.yaml"
+FIND_UNUSED_PARAM: False 
+MODEL:
+  META_ARCHITECTURE: "DECOLA_DeformableDETR"
+  WEIGHTS: "weights/swin_base_patch4_window7_224_22k.pkl"
+  BACKBONE:
+    NAME: build_swintransformer_backbone
+  SWIN:
+    SIZE: B-22k
+    OUT_FEATURES: [1, 2, 3]
+    USE_CHECKPOINT: False
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.12, 57.375]
+  DECOLA:
+    ORACLE_EVALUATION: True 
+    USE_PROMPT_EMBED_BIAS: True 
+    PER_PROMPT_TOPK: 300
+    USE_PIXEL_FEATURE_AS_QUERY: True 
+    SECOND_STAGE_EMBED_NORM: True 
+    FIRST_STAGE_EMBED_NORM: True
+    USE_PROMPT_EMBED_AS_QUERY: False  # for ablation
+    PROB_A_OBJECT: 0.0                # probability of using "a object." as prompt.
+    TEST_CLASS_CONDITIONED: True      # class-conditioned detection
+    FIRST_STAGE_ENC_LOSS_PER_PROMPT_TOPK: 10000
+  DETR:
+    DROPOUT: 0.0 
+    LOOK_FORWARD_TWICE: True 
+    NUM_CLASSES: 1203 
+    USE_BIAS: -4.59511985013459
+    USE_ZEROSHOT_CLS: True 
+    NORM_WEIGHT: True 
+    IN_FEATURES: ["swin1", "swin2", "swin3"] 
+DATASETS:
+  TRAIN: ("lvis_v1_train",)
+  TEST: ("lvis_v1_val",)
+SOLVER:
+  STEPS: (300000,)
+  MAX_ITER: 360000
+  IMS_PER_BATCH: 16
+DATALOADER:
+  NUM_WORKERS: 8
+FP16: True 

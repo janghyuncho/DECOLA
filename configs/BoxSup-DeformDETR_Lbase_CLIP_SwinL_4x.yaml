@@ -1,0 +1,34 @@
+_BASE_: "Base-DeformDETR_L_R50_4x.yaml"
+FIND_UNUSED_PARAM: False
+MODEL:
+  WEIGHTS: "weights/deta/adet_swin_pt_o365.pkl"
+  BACKBONE:
+    NAME: build_swintransformer_backbone
+  SWIN:
+    SIZE: L-22k-384
+    OUT_FEATURES: [1, 2, 3]
+    USE_CHECKPOINT: False
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.12, 57.375]
+  DETR:
+    NUM_FEATURE_LEVELS: 5
+    NUM_CLASSES: 1203 
+    USE_BIAS: -4.59511985013459
+    USE_ZEROSHOT_CLS: True 
+    NORM_WEIGHT: True
+    DIM_FEEDFORWARD: 2048
+    LOOK_FORWARD_TWICE: True 
+    MIXED_SELECTION: False 
+    DROPOUT: 0.0
+    NUM_OBJECT_QUERIES: 900
+    IN_FEATURES: ["swin1", "swin2", "swin3"] 
+DATASETS:
+  TRAIN: ("lvis_v1_train_norare",)
+DATALOADER:
+  NUM_WORKERS: 8
+SOLVER:
+  CHECKPOINT_PERIOD: 90000
+  IMS_PER_BATCH: 16
+  STEPS: (300000,)
+  MAX_ITER: 360000
+FP16: True 
