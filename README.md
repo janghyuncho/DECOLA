@@ -6,10 +6,18 @@
 > [Jang Hyun Cho](https://janghyuncho.github.io/) and [Philipp Kr&auml;henb&uuml;hl](https://www.philkr.net/)  
 > *arXiv ([arXiv 2311.17902](https://arxiv.org/abs/2311.17902))*  
 
+## What is DECOLA?
 We design a new open-vocabulary detection framework that adjusts the *inner mechanism* of the object detector to the concepts it reasons over. 
 This language-conditioned detector (**DECOLA**) trains as easily as classical detectors, but generalizes much better to novel concepts. 
 DECOLA trains in three steps: (1) Learning to *condition* to a set of concept. (2) pseudo-labeling image-level data to scale-up training data. (3) learning general-purpose detector for downstream open-vocabulary detection. 
 We show strong zero-shot performance in open-vocabulary and standard LVIS benchmarks. [[Full abstract](docs/ABSTRACT.md)]
+
+
+***TL;DR**: We design a special detector for pseudo-labeling and scale-up open-vocabulary detection through self-training.*
+
+Please feel free to reach out for any questions or discussions! 
+
+:email: : Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
 
 ## :fire: News :fire:
 - Integrate [Segment Anything Model](https://github.com/facebookresearch/segment-anything) (SAM) into DECOLA to generate high quality, open-vocabulary instance segmentation. ([Try out!](https://github.com/janghyuncho/DECOLA/tree/main#integrating-segment-anything-model))
@@ -169,13 +177,13 @@ Please refer to their original licenses for more details.
 
 
 
-<!-- ## Citation
+## Citation
 
-If you find this project useful for your research, please cite our paper using the following bibtex (coming soon).
+If you find this project useful for your research, please cite our paper using the following bibtex.
 
-    @inproceedings{xxxx,
+    @article{cho2023language,
       title={Language-conditioned Detection Transformer},
       author={Cho, Jang Hyun and Kr{\"a}henb{\"u}hl, Philipp},
-      booktitle={arxiv},
-      year={xxxx}
-    } -->
+      journal={arXiv preprint arXiv:2311.17902},
+      year={2023}
+      }
