@@ -13,11 +13,11 @@ DECOLA trains in three steps: (1) Learning to *condition* to a set of concept. (
 We show strong zero-shot performance in open-vocabulary and standard LVIS benchmarks. [[Full abstract](docs/ABSTRACT.md)]
 
 
-***TL;DR**: We design a special detector for pseudo-labeling and scale-up open-vocabulary detection through self-training.*
+***TL;DR: We design a special detector for pseudo-labeling and scale-up open-vocabulary detection through self-training.***
 
 Please feel free to reach out for any questions or discussions! 
 
-:email: Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
+**Contact**: Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
 
 
 ## :fire: News :fire:
