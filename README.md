@@ -17,10 +17,10 @@ We show strong zero-shot performance in open-vocabulary and standard LVIS benchm
 
 Please feel free to reach out for any questions or discussions! 
 
-**Contact**: Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
+📧 Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
 
 
-## :fire: News :fire:
+## 🔥 News 🔥
 - Metadata uploaded. 
 - Integrate [Segment Anything Model](https://github.com/facebookresearch/segment-anything) (SAM) into DECOLA to generate high quality, open-vocabulary instance segmentation. ([Try out!](https://github.com/janghyuncho/DECOLA/tree/main#integrating-segment-anything-model))
 - First commit.
