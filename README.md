@@ -20,7 +20,7 @@ Please feel free to reach out for any questions or discussions!
 :email: Jang Hyun Cho [[email](janghyuncho7@utexas.edu)]
 
 
-## :fire: Updates :fire:
+## :fire: News :fire:
 - Metadata uploaded. 
 - Integrate [Segment Anything Model](https://github.com/facebookresearch/segment-anything) (SAM) into DECOLA to generate high quality, open-vocabulary instance segmentation. ([Try out!](https://github.com/janghyuncho/DECOLA/tree/main#integrating-segment-anything-model))
 - First commit.
