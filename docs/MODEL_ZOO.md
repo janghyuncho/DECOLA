@@ -97,7 +97,7 @@ For DECOLA training, we use pseudo-labels generated from Phase 1 DECOLA([R50](ht
 
 ## Direct zero-shot transfer to LVIS minival
 
-| name | backbone  | data| AP_r | AP_c | AP_f | mAP_fixed |
+| name | backbone  | data| AP_r | AP_c | AP_f | mAP_fixed | model |
 |:--------------|:-:|:-:|:-:|:-:|:-:|:-:|
 | DECOLA [[Phase 1](../configs/DECOLA_PHASE1_O365_CLIP_SwinT.yaml)] | Swin-T | O365 |
 | DECOLA [[Phase 2](../configs/DECOLA_PHASE2_O365IN21k_CLIP_SwinT.yaml)] | Swin-T | O365, IN21K | 32.8 | 32.0 | 31.8 | 32.0 | [weight](https://utexas.box.com/shared/static/rfa041u6i3lx07lz49az051b8xp11ocr.pth) |
