@@ -48,7 +48,7 @@ For more training detail, please see [training details](TRAINING.md).
 ### Swin-L backbone (w/ O365)
 | name           |  box AP_novel | box AP_c | box AP_f | box mAP | model |
 |---------------------------|:----------:|:-------------:|:--------------:|:------------------:|-------|  
-| [baseline](../configs/BoxSup-DeformDETR_Lbase_CLIP_SwinB_4x.yaml)        | 21.9 | 53.3 | 57.7 | 49.6 | - |
+| [baseline](../configs/BoxSup-DeformDETR_Lbase_CLIP_SwinB_4x.yaml)        | 21.9 | 53.3 | 57.7 | 49.6 | [weight](https://utexas.box.com/shared/static/d8ej3y9wyemayx0gvlpnli44d9q39ycp.pth) |
 | [baseline + self-train](../configs/BoxSup+ST-DeformDETR_LbaseI_CLIP_SwinB_4x_ft4x.yaml)   | 36.5 | 53.5 | 56.5 | 51.8 |  [weight](https://utexas.box.com/shared/static/ytox0hpx411lgs63vcudg03diov63551.pth) |
 | DECOLA [[Phase 2](../configs/DECOLA_PHASE2_LbaseI_CLIP_SwinB_4x_ft4x.yaml)] | 46.9 | 56.0 | 58.0 | 55.2 |  [weight](https://utexas.box.com/shared/static/0ftx2ywoanv8rw7r8jj1iuifvvs212zv.pth) |
 
@@ -108,10 +108,10 @@ For DECOLA training, we use pseudo-labels generated from Phase 1 DECOLA([R50](ht
 
 | name | backbone  | data| AP_r | AP_c | AP_f | mAP_fixed | model |
 |:------------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| DECOLA [[Phase 1](../configs/DECOLA_PHASE1_O365_CLIP_SwinT.yaml)]| Swin-T | O365 | -
+| DECOLA [[Phase 1](../configs/DECOLA_PHASE1_O365_CLIP_SwinT.yaml)]| Swin-T | O365 | - |
 | DECOLA [[Phase 2](../configs/DECOLA_PHASE2_O365IN21k_CLIP_SwinT.yaml)] | Swin-T | O365, IN21K | 27.2 | 24.9 | 28.0 | 26.6 | [weight](https://utexas.box.com/shared/static/rfa041u6i3lx07lz49az051b8xp11ocr.pth) |
-| DECOLA [[Phase 1](../configs/DECOLA_PHASE1_O365_CLIP_SwinL.yaml)]| Swin-L | O365 | -
-| DECOLA [[Phase 2](../configs/DECOLA_PHASE2_O365_OIIN21k_CLIP_SwinL.yaml)]| Swin-L | O365, OID, IN21K | 32.9 | 29.1 | 30.3 | 30.2 | [weight](https://utexas.box.com/shared/static/2k40r5ms1prl6mezbukeyysh2nsw3dzu.pth)
+| DECOLA [[Phase 1](../configs/DECOLA_PHASE1_O365_CLIP_SwinL.yaml)]| Swin-L | O365 | - |
+| DECOLA [[Phase 2](../configs/DECOLA_PHASE2_O365_OIIN21k_CLIP_SwinL.yaml)]| Swin-L | O365, OID, IN21K | 32.9 | 29.1 | 30.3 | 30.2 | [weight](https://utexas.box.com/shared/static/2k40r5ms1prl6mezbukeyysh2nsw3dzu.pth) |
 
 
 ## Standard LVIS with CenterNet2 
