@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Scaling object detector training with language-conditioned pseudo-labeling.">
+  <meta name="keywords" content="DECOLA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language-conditioned Detection Transformer</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Language-conditioned <br>Detection Transformer</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://janghyuncho.github.io">Jang Hyun Cho</a>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.philkr.net">Philipp Krähenbühl</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">UT Austin</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2311.17902"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/janghyuncho/DECOLA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a new open-vocabulary detection framework. Our framework uses both image-level labels and detailed detection annotations when available. 
+            Our framework proceeds in three steps. We first train a language-conditioned object detector on fully-supervised detection data. 
+            This detector gets to see the presence or absence of ground truth classes during training, and conditions prediction on the set 
+            of present classes. We use this detector to pseudo-label images with image-level labels. Our detector provides much more accurate 
+            pseudo-labels than prior approaches with its conditioning mechanism. Finally, we train an unconditioned open-vocabulary detector 
+            on the pseudo-annotated images. 
+          </p>
+          <p>
+            The resulting detector, named <strong>DECOLA</strong>, shows strong zero-shot performance in open-vocabulary LVIS 
+             as well as direct zero-shot transfer benchmarks on LVIS, COCO, Object365, and OpenImages. <strong>DECOLA</strong> outperforms the prior 
+            arts by 17.1 AP<small>rare</small> and 9.4 mAP on zero-shot LVIS benchmark. <strong>DECOLA</strong> achieves state-of-the-art results 
+            in various model sizes, architectures, and datasets by only training on open-sourced data and academic-scale computing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Overview image. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>DECOLA</strong> allows users to prompt its detection with a set of class names in language. 
+            It adapts its inner-workings to focus solely on the given prompts. 
+            This enables <strong>DECOLA</strong> to learn from a large amount of image-level data through self-training.
+          </p>
+          <!-- input image -->
+          <div class="overview-item">
+            <img src="./static/images/teaser_light.png"
+                 alt="teaser image."
+                 class="overview-image"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Overview image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Language-conditioned Detecton Transformer</h2>
+      <div class="content has-text-justified">
+        <p>
+          <strong>DECOLA</strong> is a language-conditioned detection transformer that can be prompted with a set of class names in language. 
+          We train <strong>DECOLA</strong> in two phases:
+        </p>
+        <p>
+          <strong>Phase 1</strong> training aligns input text with object features of image encoder. 
+          Specifically, we define the <i>objectness score</i> as similarity between object and text features. 
+          Each text prompt proceeds with equal number of object proposals and initialize <i>n</i> language-conditioned object queries.
+          This makes the detector adapt to given text at run-time, highly suitable for pseudo-labeling.  
+        </p>
+        <p>
+          <strong>Phase 2</strong> utilizes <strong>DECOLA</strong> after Phase 1 to generate pseudo-labels for large-scale image-level data.
+          We train <strong>DECOLA</strong> with the pseudo-labels for unconditioned, open-vocabulary detection by conditioning the proposals with ``an object.''
+          This allows <strong>DECOLA</strong> to detect <i>everything</i>.
+        </p>
+        <!-- input image -->
+        <div class="overview-item">
+          <img src="./static/images/pipeline_light.png"
+               alt="pipeline image."
+               class="overview-image"/>
+      </div>
+      <!-- <button type="button" class="collapsible">Why Phase 1?</button>
+        <div class="content">
+          <p>
+            <b><small>Why does Phase 1 training improve pseudo-labeling?</small></b>
+          </p>
+          <p>
+            <small>
+              Notice Phase 1 and Phase 2 have different training objectives. During Phase 1, the detector scores objects as binary classification. There is no notion of <i>vocabulary</i>, each input text ranks equal
+              number of objects. This gaurantees high and balanced recall across different classes since there is no inter-class competition during training. This will <b>not</b> be suitable
+              for standard detection where you rank objects from a set of predefined vocabulary, regardless of the presence or absence. 
+              Yet, this model excells when given image-level tags and only ranks objects based on the present object categories.
+            </small>
+          </p>
+        </div> -->
+    </div>
+  </div>
+</div>
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Evaluating DECOLA</h2>
+    <div class="content has-text-justified">
+      <p>
+        We evaluate <strong>DECOLA</strong> on zero-shot and open-vocabulary LVIS benchmarks. In zero-shot LVIs, models have no access to target images or vocabulary during training.
+        In open-vocabulary LVIS, models have access to a subset of classes (<i>base classes</i>) and the target vocabulary during training. 
+      </p>
+      <!-- input image -->
+      <div class="overview-item">
+        <img src="./static/images/results.png"
+             alt="selflabeling image."
+             class="overview-image"/>
+    </div>
+  </div>
+</div>
+</div>
+<!-- example image. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Example Pseudo Labels</h2>
+    <div class="content has-text-justified">
+      <p>
+        We compare example pseudo-labels of <strong>DECOLA</strong> (Phase 1) and a baseline. 
+        Both models use same architecture and data, and have never seen the images nor trained on the prompted classes. <span style="color:rgba(56, 144, 56, 0.709)"><b>Green boxes</b></span> 
+        are generated by <strong>DECOLA</strong> and <span style="color:rgba(202, 52, 52, 0.701)"><b>red boxes</b></span> are generated by the baseline. 
+        <strong>DECOLA</strong> provides much more accurate pseudo-labels than the baseline.
+      </p>
+      <!-- input image -->
+      <div class="overview-item">
+        <img src="./static/images/selflabels.png"
+             alt="selflabeling image."
+             class="overview-image"/>
+    </div>
+  </div>
+</div>
+</div>
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Analyzing <b>DECOLA</b></h2>
+    <div class="content has-text-justified">
+      <p>
+        We analyze the performance of <strong>DECOLA</strong> in pseudo-labeling. 
+        </p>
+      <p>
+        <b>Left</b>, we compare <strong>DECOLA</strong> with a baseline in how well they can predict completely unseen object categories.
+        We plot the AP against the number of total predictions per-image. Low-shot AP is useful for assessing the quality of pseudo-labels; unlike detection, there are many image-level data to predict but 
+        one false-positive can be detrimental during training. In other words, false positive is more crucial than false negative hence we care few most confident boxes. 
+      </p>
+      <p>
+        <b>Right</b>, we compare the average recall of <strong>DECOLA</strong> and the baseline on <i>unseen classes</i>. We plot the recall of first and second stage of the detector when conditioned to the present classes. 
+        Since <strong>DECOLA</strong> dedicate equal number of proposals to each of the prompted classes, it enjoys high recall even on unseen classes. This is the critical reason why <strong>DECOLA</strong> can provide accurate pseudo-labels.
+      </p>
+      <!-- input image -->
+      <div class="overview-item">
+        <img src="./static/images/analysis.png"
+             alt="analyses image."
+             class="overview-image"/>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{cho2023language,
+    title    =  {Language-conditioned Detection Transformer},
+    author   =  {Cho, Jang Hyun and Kr{\"a}henb{\"u}hl, Philipp},
+    journal  =  {arXiv preprint arXiv:2311.17902},
+    year={2023}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2311.17902.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/janghyuncho" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This material is in part based upon work supported by the National Science Foundation 
+            under Grant No. IIS-1845485 and IIS-2006820.
+          </p>
+          <p>
+            The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
