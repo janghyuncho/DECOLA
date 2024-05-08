@@ -9,8 +9,8 @@
 
 
 ### Example conda environment setup
-```bash
-conda create --name detic python=3.8 -y
+```
+conda create --name decola python=3.8 -y
 conda activate decola
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c nvidia
 
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 # Deformable-module
 cd third_party/Deformable-DETR/models/ops
-./make.sh
+bash ./make.sh
 ``` 
 
 
