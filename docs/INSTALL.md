@@ -10,9 +10,10 @@
 
 ### Example conda environment setup
 ```
-conda create --name decola python=3.8 -y
+conda create --name decola python=3.10 -y
 conda activate decola
-conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c nvidia
+<!-- conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c nvidia -->
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
 
 # under your working directory
 git clone git@github.com:facebookresearch/detectron2.git
