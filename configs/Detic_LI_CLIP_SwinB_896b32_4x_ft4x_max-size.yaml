@@ -1,6 +1,6 @@
 _BASE_: "BoxSup-DeformDETR_Lbase_CLIP_SwinL_4x.yaml"
 MODEL:
-  WEIGHTS: "output/standard/zeroshot-DECOLA/baseline_swinl_ddetr_bs16_4x/look_forward_twice_True/model_final.pth"
+  WEIGHTS: "weights/BoxSup-DeformDETR_Lbase_CLIP_SwinL_4x.pth"
 INPUT:
   CUSTOM_AUG: ResizeShortestEdge
   MIN_SIZE_TRAIN_SAMPLING: range
