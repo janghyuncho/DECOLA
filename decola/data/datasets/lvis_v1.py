@@ -118,9 +118,8 @@ def custom_load_lvis_json(json_file, image_root, dataset_name=None):
 _CUSTOM_SPLITS_LVIS = {
     "lvis_v1_train+coco": ("coco/", "lvis/lvis_v1_train+coco_mask.json"),
     "lvis_v1_train_norare": ("coco/", "lvis/lvis_v1_train_norare.json"),
-    # "lvis_v1_val_random_subset_30": ("coco/", "lvis/lvis_v1_val_random_subset_30.json"),
-    # "lvis_v1_val_random_subset_100": ("coco/", "lvis/lvis_v1_val_random_subset_100.json"),
-    "lvis_v1_debug": ("coco/", "lvis/lvis_v1_debug.json"),
+    "lvis_v1_minival": ("coco/", "lvis_mini/lvis_v1_minival_inserted_image_name.json"),
+    "lvis_v1_od_val": ("coco/", "lvis_mini/lvis_od_val.json")
 }
 
 

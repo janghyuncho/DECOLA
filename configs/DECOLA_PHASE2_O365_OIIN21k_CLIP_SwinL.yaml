@@ -1,6 +1,6 @@
 _BASE_: "DECOLA_PHASE1_O365_CLIP_SwinL_4x.yaml"
 MODEL:
-  WEIGHTS: "output_local/standard/multi-node/standard-DECOLA/phase1_swinl_ddetr_bs32_4x/ppk_300_encl_ppk_10000_look_forward_twice_True/output/model_final.pth"
+  WEIGHTS: "weights/DECOLA_PHASE1_O365_CLIP_SwinL_4x.pth"
   DECOLA:
     WEAK_LOSS_PSEUDO_TYPE: 'max-score'
     USE_PSEUDO_LABELING_FOR_WEAK_LOSS: True 
@@ -8,8 +8,6 @@ MODEL:
     ORACLE_EVALUATION: False 
     TEST_CLASS_CONDITIONED: False 
     ZS_WEIGHT_PATH: 'datasets/metadata/lvis-21k+o365+oid_clip_a+cname.npy'
-    NO_FED_LOSS_LIST: [True, True, True]
-    ONLINE_LABELING: True 
   DETR:
     NUM_OBJECT_QUERIES: 300
     NUM_CLASSES: 21311 # in21 + o365 + oid
