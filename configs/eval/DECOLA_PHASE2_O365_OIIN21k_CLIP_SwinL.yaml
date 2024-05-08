@@ -15,6 +15,6 @@ INPUT:
   MIN_SIZE_TRAIN_SAMPLING: range
   MIN_SIZE_TRAIN: [480, 800]
 DATASETS:
-  TEST: ("lvis_v1_od_val", "lvis_v1_minival")
+  TEST: ("lvis_v1_val", "lvis_v1_minival")
 TEST:
   DETECTIONS_PER_IMAGE: 9999 

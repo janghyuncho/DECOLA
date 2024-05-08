@@ -21,6 +21,7 @@ Please feel free to reach out for any questions or discussions!
 
 
 ## 🔥 News 🔥
+- Added zero-shot eval configs, and fixed some config and dependency issues. 
 - Added missing configs and weights. 
 - Metadata uploaded. 
 - Integrate [Segment Anything Model](https://github.com/facebookresearch/segment-anything) (SAM) into DECOLA to generate high quality, open-vocabulary instance segmentation. ([Try out!](https://github.com/janghyuncho/DECOLA/tree/main#integrating-segment-anything-model))

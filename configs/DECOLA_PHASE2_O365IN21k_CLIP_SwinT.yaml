@@ -18,7 +18,7 @@ INPUT:
   MIN_SIZE_TRAIN: [480, 800]
 DATASETS:
   TRAIN: ("imagenet_21k_objects365_v1_train","imagenet_lvis-21k")
-  TEST: ("lvis_v1_od_val",)
+  TEST: ("lvis_v1_val",)
 SOLVER:
   STEPS: (449853,)
   MAX_ITER: 511197

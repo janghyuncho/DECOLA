@@ -125,7 +125,6 @@ oid/
         ...
 ```
 
-
 ### Metadata
 
 ```
@@ -136,6 +135,7 @@ metadata/
     oid_clip_a+cname.npy
     imagenet_lvis_wnid.txt
     Objects365_names_fix.csv
+    lvis_v1_minival_inserted_image_name.json   # for eval
 ```
 
 `lvis_v1_train_cat_info.json` is used by the Federated loss.
