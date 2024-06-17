@@ -4,7 +4,7 @@
 
 > [**Language-conditioned Detection Transformer**](https://janghyuncho.github.io/DECOLA/)  
 > [Jang Hyun Cho](https://janghyuncho.github.io/) and [Philipp Kr&auml;henb&uuml;hl](https://www.philkr.net/)  
-> *CVPR 2024 ([[pdf](hhttps://openaccess.thecvf.com/content/CVPR2024/papers/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_paper.pdf)][[supp](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_supplemental.pdf)])*  
+> *CVPR 2024 ([[pdf](https://openaccess.thecvf.com/content/CVPR2024/papers/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_paper.pdf)][[supp](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_supplemental.pdf)])*  
 
 ## What is DECOLA?
 We design a new open-vocabulary detection framework that adjusts the *inner mechanism* of the object detector to the concepts it reasons over. 
