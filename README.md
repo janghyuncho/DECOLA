@@ -2,9 +2,9 @@
 
 <p align="center"> <img src='figs/teaser_light.png' align="center" width="70%"> </p>
 
-> [**Language-conditioned Detection Transformer**](https://arxiv.org/abs/2311.17902)  
+> [**Language-conditioned Detection Transformer**](https://janghyuncho.github.io/DECOLA/)  
 > [Jang Hyun Cho](https://janghyuncho.github.io/) and [Philipp Kr&auml;henb&uuml;hl](https://www.philkr.net/)  
-> *arXiv ([arXiv 2311.17902](https://arxiv.org/abs/2311.17902))*  
+> *CVPR 2024 ([[pdf](hhttps://openaccess.thecvf.com/content/CVPR2024/papers/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_paper.pdf)][[supp](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Cho_Language-conditioned_Detection_Transformer_CVPR_2024_supplemental.pdf)])*  
 
 ## What is DECOLA?
 We design a new open-vocabulary detection framework that adjusts the *inner mechanism* of the object detector to the concepts it reasons over. 
@@ -186,9 +186,15 @@ Please refer to their original licenses for more details.
 
 If you find this project useful for your research, please cite our paper using the following bibtex.
 
-    @article{cho2023language,
-      title={Language-conditioned Detection Transformer},
-      author={Cho, Jang Hyun and Kr{\"a}henb{\"u}hl, Philipp},
-      journal={arXiv preprint arXiv:2311.17902},
-      year={2023}
-      }
+```
+@InProceedings{Cho_2024_CVPR,
+    author    = {Cho, Jang Hyun and Kr\"ahenb\"uhl, Philipp},
+    title     = {Language-conditioned Detection Transformer},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {16593-16603}
+}
+```
+
+      
